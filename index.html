@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+	<section>
+		<ul>
+			<li class="list active" data-filter="all">All</li>
+			<li class="list" data-filter="mobile">Mobile</li>
+			<li class="list" data-filter="camera">camera</li>
+			<li class="list" data-filter="watch">watch</li>
+			<li class="list" data-filter="shoe">shoe</li>
+		</ul>
+		<div class="product">
+			<div class="itemBox mobile"><img src="img/mobile1.jpg"></div>
+			<div class="itemBox camera"><img src="img/camera1.jpg"></div>
+			<div class="itemBox watch"><img src="img/watch1.jpg"></div>
+			<div class="itemBox shoe"><img src="img/shoe1.jpg"></div> 
+
+			<div class="itemBox mobile"><img src="img/mobile2.jpg"></div>
+			<div class="itemBox camera"><img src="img/camera2.jpg"></div>
+			<div class="itemBox watch"><img src="img/watch2.jpg"></div>
+			<div class="itemBox shoe"><img src="img/shoe2.jpg"></div> 
+
+			<div class="itemBox mobile"><img src="img/mobile3.jpg"></div>
+			<div class="itemBox camera"><img src="img/camera3.jpg"></div>
+			<div class="itemBox watch"><img src="img/watch3.jpg"></div>
+			<div class="itemBox shoe"><img src="img/shoe3.jpg"></div> 
+		</div>
+	</section>
+	<script  src="https://code.jquery.com/jquery-3.7.0.js"
+  integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript">
+  	$(document).ready(function(){
+  		$('.list').click(function(){
+  			const value = $(this).attr('data-filter');
+  			if(value == 'all'){
+  				$('.itemBox').show('1000');
+  			}else{
+  				$('.itemBox').not('.'+value).hide('1000');
+  				$('.itemBox').filter('.'+value).show('1000');
+  			}
+  		})
+  		// All active class on select item
+
+  		$('.list').click(function(){
+  			$(this).addClass('active').siblings().removeClass('active');
+  		})
+  	})
+  </script>
+</body>
+</html>
